@@ -1,6 +1,108 @@
 {
   "version": 2,
   "projects": {
+    "editor": {
+      "root": "apps/editor",
+      "sourceRoot": "apps/editor/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/editor",
+            "index": "apps/editor/src/index.html",
+            "baseHref": "/",
+            "main": "apps/editor/src/main.tsx",
+            "polyfills": "apps/editor/src/polyfills.ts",
+            "tsConfig": "apps/editor/tsconfig.app.json",
+            "assets": ["apps/editor/src/favicon.ico", "apps/editor/src/assets"],
+            "styles": ["apps/editor/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/editor/src/environments/environment.ts",
+                  "with": "apps/editor/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "editor:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "editor:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/editor/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/editor"],
+          "options": {
+            "jestConfig": "apps/editor/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "editor-e2e": {
+      "root": "apps/editor-e2e",
+      "sourceRoot": "apps/editor-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/editor-e2e/cypress.json",
+            "devServerTarget": "editor:serve",
+            "tsConfig": "apps/editor-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "editor:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/editor-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "petitedi-service": {
       "root": "apps/petitedi-service",
       "sourceRoot": "apps/petitedi-service/src",
@@ -56,5 +158,21 @@
   "cli": {
     "defaultCollection": "@nrwl/express"
   },
-  "defaultProject": "petitedi-service"
+  "defaultProject": "petitedi-service",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  }
 }

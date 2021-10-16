@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "editor": {
+      "tags": []
+    },
+    "editor-e2e": {
+      "tags": [],
+      "implicitDependencies": ["editor"]
+    },
     "petitedi-service": {
       "tags": []
     }
