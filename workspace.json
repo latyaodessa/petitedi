@@ -1,7 +1,60 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "petitedi-service": {
+      "root": "apps/petitedi-service",
+      "sourceRoot": "apps/petitedi-service/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/petitedi-service",
+            "main": "apps/petitedi-service/src/main.ts",
+            "tsConfig": "apps/petitedi-service/tsconfig.app.json",
+            "assets": ["apps/petitedi-service/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/petitedi-service/src/environments/environment.ts",
+                  "with": "apps/petitedi-service/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "petitedi-service:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/petitedi-service/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/petitedi-service"],
+          "options": {
+            "jestConfig": "apps/petitedi-service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/express"
+  },
+  "defaultProject": "petitedi-service"
 }
