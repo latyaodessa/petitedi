@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, Form, Formik } from 'formik';
 import { Grid } from '@mui/material';
 import { TextNumberFieldWithErrorMessage } from '@petitedi/forms-core';
+import { useTranslation } from 'react-i18next';
 //
 // const locationValidation = Yup.object({
 //   id: Yup.number(),
@@ -46,6 +47,8 @@ import { TextNumberFieldWithErrorMessage } from '@petitedi/forms-core';
 // };
 
 export const ProfileEngineForm: React.VFC<any> = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <Formik
       enableReinitialize={true}
@@ -72,6 +75,7 @@ export const ProfileEngineForm: React.VFC<any> = ({}) => {
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
+                {t("title")}
                 {/*<TitleBarText title={t('user.change')} />*/}
               </Grid>
               <Grid item xs={12} md={6}>
