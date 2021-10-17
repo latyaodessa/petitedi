@@ -36,6 +36,9 @@
     },
     "petitedi-service": {
       "tags": []
+    },
+    "petitedi-service-petite-interfaces": {
+      "tags": []
     }
   }
 }

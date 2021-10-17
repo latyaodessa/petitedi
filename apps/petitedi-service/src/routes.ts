@@ -9,7 +9,8 @@ async function loopCars(maxToDate: moment.Moment, duration: number, city: number
   for (const m = moment().add(1, 'day'); m.isBefore(maxToDate); m.add(1, 'days')) {
     const fromDate = moment(m).set('hour', 10).set('minutes', 0).set('second', 0).set('milliseconds', 0);
     const toDate = moment(m).add(duration - 1, 'days').set('hour', 17).set('minutes', 0).set('second', 0).set('milliseconds', 0);
-    ;
+
+
     log.info('from ' + fromDate.format('YYYY-MM-DD HH:mm:ss'));
     log.info('to ' + toDate.format('YYYY-MM-DD HH:mm:ss'));
 

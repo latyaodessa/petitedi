@@ -153,6 +153,30 @@
           }
         }
       }
+    },
+    "petitedi-service-petite-interfaces": {
+      "root": "libs/petitedi-service/petite-interfaces",
+      "sourceRoot": "libs/petitedi-service/petite-interfaces/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/petitedi-service/petite-interfaces/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/petitedi-service/petite-interfaces"],
+          "options": {
+            "jestConfig": "libs/petitedi-service/petite-interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
