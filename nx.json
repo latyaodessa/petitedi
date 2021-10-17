@@ -34,6 +34,9 @@
       "tags": [],
       "implicitDependencies": ["editor"]
     },
+    "forms-core": {
+      "tags": []
+    },
     "petitedi-service": {
       "tags": []
     },

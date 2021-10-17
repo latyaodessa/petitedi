@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@petitedi/forms-core": ["libs/forms-core/src/index.ts"],
       "@petitedi/petitedi-service/petite-interfaces": [
         "libs/petitedi-service/petite-interfaces/src/index.ts"
       ]

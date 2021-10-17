@@ -50,7 +50,8 @@
           "executor": "@nrwl/web:dev-server",
           "options": {
             "buildTarget": "editor:build",
-            "hmr": true
+            "hmr": true,
+            "proxyConfig": "apps/editor/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -99,6 +100,28 @@
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/editor-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "forms-core": {
+      "root": "libs/forms-core",
+      "sourceRoot": "libs/forms-core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/forms-core/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/forms-core"],
+          "options": {
+            "jestConfig": "libs/forms-core/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
