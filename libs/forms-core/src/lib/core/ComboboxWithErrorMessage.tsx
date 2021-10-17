@@ -12,7 +12,7 @@ type ComboboxSelectProps = {
   onChange?: (event: any) => void;
 };
 
-const ComboboxWithErrorMessage: React.FC<FieldProps & ComboboxSelectProps> = ({
+export const ComboboxWithErrorMessage: React.FC<FieldProps & ComboboxSelectProps> = ({
                                                                                 field,
                                                                                 required,
                                                                                 readOnly,
@@ -53,4 +53,3 @@ const ComboboxWithErrorMessage: React.FC<FieldProps & ComboboxSelectProps> = ({
   );
 };
 
-export default ComboboxWithErrorMessage;

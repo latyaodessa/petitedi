@@ -15,7 +15,7 @@ type DatePickerProps = {
   required?: boolean;
 };
 
-const DateTimePickerWithErrorMessage: React.FC<FieldProps & DatePickerProps> = ({
+export const DateTimePickerWithErrorMessage: React.FC<FieldProps & DatePickerProps> = ({
                                                                                   dateOnly,
                                                                                   caption,
                                                                                   required,
@@ -81,4 +81,3 @@ const DateTimePickerWithErrorMessage: React.FC<FieldProps & DatePickerProps> = (
   );
 };
 
-export default DateTimePickerWithErrorMessage;

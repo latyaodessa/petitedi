@@ -16,6 +16,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@petitedi/editor/engine/feature-profile": [
+        "libs/editor/engine/feature-profile/src/index.ts"
+      ],
+      "@petitedi/editor/engine/ui/forms": [
+        "libs/editor/engine/ui/forms/src/index.ts"
+      ],
       "@petitedi/forms-core": ["libs/forms-core/src/index.ts"],
       "@petitedi/petitedi-service/petite-interfaces": [
         "libs/petitedi-service/petite-interfaces/src/index.ts"

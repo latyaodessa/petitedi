@@ -11,7 +11,7 @@ export interface SwitchProps {
   onChange?: (event: React.SyntheticEvent<EventTarget>) => void;
 }
 
-const SwitchWithErrorMessage: React.FC<FieldProps & SwitchProps> = ({
+export const SwitchWithErrorMessage: React.FC<FieldProps & SwitchProps> = ({
                                                                       field,
                                                                       required,
                                                                       readOnly,
@@ -48,4 +48,3 @@ const SwitchWithErrorMessage: React.FC<FieldProps & SwitchProps> = ({
   );
 };
 
-export default SwitchWithErrorMessage;

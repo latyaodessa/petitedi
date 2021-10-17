@@ -5,7 +5,13 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import { getIn } from 'formik';
 
-const CheckBoxWithErrorMessage: React.VFC<any> = ({ field, readOnly, caption, required, form }) => {
+export const CheckBoxWithErrorMessage: React.VFC<any> = ({
+                                                           field,
+                                                           readOnly,
+                                                           caption,
+                                                           required,
+                                                           form
+                                                         }) => {
   const error = getIn(form.errors, field.name);
   const touched = getIn(form.touched, field.name);
   const errorText = error && touched ? error : null;
@@ -33,4 +39,3 @@ const CheckBoxWithErrorMessage: React.VFC<any> = ({ field, readOnly, caption, re
   );
 };
 
-export default CheckBoxWithErrorMessage;

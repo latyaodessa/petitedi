@@ -9,7 +9,7 @@ export interface TextFieldProps {
   emptyValue?: string;
 }
 
-const TextNumberFieldWithErrorMessage: React.VFC<FieldProps & TextFieldProps> = ({
+export const TextNumberFieldWithErrorMessage: React.VFC<FieldProps & TextFieldProps> = ({
                                                                                    field,
                                                                                    form,
                                                                                    readOnly,
@@ -45,4 +45,3 @@ const TextNumberFieldWithErrorMessage: React.VFC<FieldProps & TextFieldProps> = 
   );
 };
 
-export default TextNumberFieldWithErrorMessage;

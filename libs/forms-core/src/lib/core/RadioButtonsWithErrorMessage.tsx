@@ -11,7 +11,7 @@ export interface RadioButtonsProps {
   onChange?: (event: React.SyntheticEvent<EventTarget>) => void;
 }
 
-const RadioButtonsWithErrorMessage: React.FC<FieldProps & RadioButtonsProps> = ({
+export const RadioButtonsWithErrorMessage: React.FC<FieldProps & RadioButtonsProps> = ({
                                                                                   field,
                                                                                   required,
                                                                                   readOnly,
@@ -46,4 +46,3 @@ const RadioButtonsWithErrorMessage: React.FC<FieldProps & RadioButtonsProps> = (
   );
 };
 
-export default RadioButtonsWithErrorMessage;

@@ -104,6 +104,54 @@
         }
       }
     },
+    "editor-engine-feature-profile": {
+      "root": "libs/editor/engine/feature-profile",
+      "sourceRoot": "libs/editor/engine/feature-profile/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/editor/engine/feature-profile/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/editor/engine/feature-profile"],
+          "options": {
+            "jestConfig": "libs/editor/engine/feature-profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "editor-engine-ui-forms": {
+      "root": "libs/editor/engine/ui/forms",
+      "sourceRoot": "libs/editor/engine/ui/forms/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/editor/engine/ui/forms/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/editor/engine/ui/forms"],
+          "options": {
+            "jestConfig": "libs/editor/engine/ui/forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "forms-core": {
       "root": "libs/forms-core",
       "sourceRoot": "libs/forms-core/src",
