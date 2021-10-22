@@ -90,7 +90,9 @@ async function loopCars(maxToDate: moment.Moment, duration: number, city: number
 }
 
 function routes(app: Express) {
-  app.get('/healthcheck', (req: Request, res: Response) => res.sendStatus(200));
+  app.get('/healthcheck', (req: Request, res: Response) => {
+    return res.sendStatus(200);
+  });
 
   app.get('/test', async (req: Request, res: Response) => {
 

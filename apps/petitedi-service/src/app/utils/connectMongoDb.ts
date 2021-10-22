@@ -7,6 +7,7 @@ async function connectMongoDb() {
   try {
 
     await mongoose.connect(environment.mongoDbUri);
+    mongoose.set('debug', true);
     log.info('DB connected');
   } catch (error) {
     console.error(error);
