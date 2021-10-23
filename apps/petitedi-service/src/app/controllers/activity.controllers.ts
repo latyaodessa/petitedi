@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import { ProfileDocument } from '../models/profile.model';
 import ActivityModel, { ActivityDocument } from '../models/activity.model';
-import log from '../utils/log';
 import { findProfileById } from './profile.controllers';
 import { Activity } from '@petitedi/petitedi-service/petite-interfaces';
+import { logger } from '@petitedi/common/common-utils';
 
 export const updateActivity = async (req: Request, res: Response, next: NextFunction) => {
   const profileId = req.params.profileId;
@@ -69,7 +69,7 @@ export const createActivity = async (req: Request, res: Response, next: NextFunc
     res.json('profile');
 
   } catch (e) {
-    log.error(e);
+    logger.error(e);
     res.status(400).send(e);
   }
 

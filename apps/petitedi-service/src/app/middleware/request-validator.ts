@@ -1,6 +1,6 @@
-import { AnySchema } from "yup";
-import { Request, Response, NextFunction } from "express";
-import log from '../utils/log';
+import { AnySchema } from 'yup';
+import { NextFunction, Request, Response } from 'express';
+import { logger } from '@petitedi/common/common-utils';
 
 const validate = (schema: AnySchema) => async (
   req: Request,
@@ -11,12 +11,12 @@ const validate = (schema: AnySchema) => async (
     await schema.validate({
       body: req.body,
       query: req.query,
-      params: req.params,
+      params: req.params
     });
 
     return next();
   } catch (e) {
-    log.error(e);
+    logger.error(e);
     return res.status(400).send(e.errors);
   }
 };

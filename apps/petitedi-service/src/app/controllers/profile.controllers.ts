@@ -1,8 +1,7 @@
 import ProfileModel, { ProfileDocument } from '../models/profile.model';
 import { NextFunction, Request, Response } from 'express';
-import log from '../utils/log';
-import ActivityModel, { ActivityDocument } from '../models/activity.model';
 import EventModel, { EventDocument } from '../models/event.model';
+import { logger } from '@petitedi/common/common-utils';
 
 
 export const findProfile = async (req: Request, res: Response, next: NextFunction) => {
@@ -18,8 +17,6 @@ export const findProfile = async (req: Request, res: Response, next: NextFunctio
 
 export const createProfile = async (req: Request, res: Response, next: NextFunction) => {
 
-
-  console.log(req);
 
   const profile: ProfileDocument = new ProfileModel({});
   await profile.save();
@@ -45,12 +42,11 @@ export const createEvent = async (req: Request, res: Response, next: NextFunctio
 };
 
 
-
 export async function findProfileById(profileId: string) {
   try {
     return await ProfileModel.findById(profileId).populate('activities');
   } catch (e) {
-    log.error(e);
+    logger.error(e);
     throw new Error(e);
   }
 }

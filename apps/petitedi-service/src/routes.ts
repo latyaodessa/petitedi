@@ -2,7 +2,7 @@ import { Express, Request, Response } from 'express';
 import axios from 'axios';
 import CarModel from './app/models/car.model';
 import moment from 'moment';
-import log from './app/utils/log';
+import { logger } from '@petitedi/common/common-utils';
 
 
 async function loopCars(maxToDate: moment.Moment, duration: number, city: number) {
@@ -11,8 +11,8 @@ async function loopCars(maxToDate: moment.Moment, duration: number, city: number
     const toDate = moment(m).add(duration - 1, 'days').set('hour', 17).set('minutes', 0).set('second', 0).set('milliseconds', 0);
 
 
-    log.info('from ' + fromDate.format('YYYY-MM-DD HH:mm:ss'));
-    log.info('to ' + toDate.format('YYYY-MM-DD HH:mm:ss'));
+    logger.info('from ' + fromDate.format('YYYY-MM-DD HH:mm:ss'));
+    logger.info('to ' + toDate.format('YYYY-MM-DD HH:mm:ss'));
 
 
     const response = await axios.post('https://bpcs-webjoi.oeamtc-mietwagen.at/web-joi/joi/vehicleRequest?pageSize=7', {

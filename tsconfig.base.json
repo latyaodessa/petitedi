@@ -16,6 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@petitedi/common/common-utils": [
+        "libs/common/common-utils/src/index.ts"
+      ],
       "@petitedi/editor/engine/feature-profile": [
         "libs/editor/engine/feature-profile/src/index.ts"
       ],

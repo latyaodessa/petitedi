@@ -1,6 +1,6 @@
+import { logger } from '@petitedi/common/common-utils';
 import mongoose from 'mongoose';
 import { environment } from '../../environments/environment';
-import { logger } from '@petitedi/common/common-utils';
 
 async function connectMongoDb() {
 

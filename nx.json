@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "common-common-utils": {
+      "tags": []
+    },
     "editor": {
       "tags": []
     },
@@ -41,6 +44,9 @@
       "tags": []
     },
     "forms-core": {
+      "tags": []
+    },
+    "petitedi-engine": {
       "tags": []
     },
     "petitedi-service": {

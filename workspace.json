@@ -1,6 +1,28 @@
 {
   "version": 2,
   "projects": {
+    "common-common-utils": {
+      "root": "libs/common/common-utils",
+      "sourceRoot": "libs/common/common-utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/common/common-utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/common/common-utils"],
+          "options": {
+            "jestConfig": "libs/common/common-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "editor": {
       "root": "apps/editor",
       "sourceRoot": "apps/editor/src",
@@ -169,6 +191,57 @@
           "outputs": ["coverage/libs/forms-core"],
           "options": {
             "jestConfig": "libs/forms-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "petitedi-engine": {
+      "root": "apps/petitedi-engine",
+      "sourceRoot": "apps/petitedi-engine/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/petitedi-engine",
+            "main": "apps/petitedi-engine/src/main.ts",
+            "tsConfig": "apps/petitedi-engine/tsconfig.app.json",
+            "assets": ["apps/petitedi-engine/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/petitedi-engine/src/environments/environment.ts",
+                  "with": "apps/petitedi-engine/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "petitedi-engine:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/petitedi-engine/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/petitedi-engine"],
+          "options": {
+            "jestConfig": "apps/petitedi-engine/jest.config.js",
             "passWithNoTests": true
           }
         }
